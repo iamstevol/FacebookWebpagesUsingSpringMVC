@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Facebook Clone - Home</title>
+    <!-- Bootstrap 4.5 CSS-->
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+    />
+
+<!--    Font Awesome Icon&ndash;&gt;-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap JS Requirements -->
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"
+    ></script>
+    <!-- My css -->
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/home}">Facebook Clone</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            </ul>
+            <div class="d-flex navbar-right">
+                <img class="profile-image" th:src="@{/img/Stephen.jpeg}" alt="">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class ="nav-link" th:href="@{##}" >Username</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row home-page">
+        <div class="col-lg-3">
+            <div class="shadow p-3 mb-5 bg-body rounded text-center">
+                <img class="profile-image-big mt-3" th:src="@{/img/Stephen.jpeg}" alt="">
+                <h4 class="mt-2" th:text="${loggedUser.firstName + ' ' + loggedUser.lastName}" ></h4>
+                <p>I am a goal_oriented, friendly and enthusiastic individual.</p>
+                <p th:text="${'My birthday is ' + loggedUser.datOfBirth}"></p>
+                <p><b>Lagos, Nigeria</b></p>
+                <p><a href="#">Website</a></p>
+                <p>Born May 1st</p>
+                <p>Joined May</p>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="shadow p-3 mb-5 bg-body rounded">
+
+                <form th:action="@{/home_post}" method="post" th:object="${post}" enctype="multipart/form-data">
+                    <input class="mb-4 titlestyle" type="text" th:field="*{title}"  placeholder="Title of post" required>
+                    <textarea class ="form-control mb-3 drag commentstyle" th:field="*{body}" rows ="4" placeholder="What's on your mind"    ></textarea>
+                    <button type="submit" class="btn btn-primary btn-md mt-3">Post</button>
+
+                </form>
+
+
+            </div>
+
+            <div class="post mt-4 mb-4 shadow p-3 mb-5 bg-body rounded" th:each="post : ${listOfAllPosts}">
+            <h4 class="mb-4">Posts</h4>
+
+                <div class="mb-4">
+
+                    <div class="">
+                        <h6 class="mt-2 mb-3" th:text="*{'Post Made By:' + post.getUser().getFirstName()}"></h6>
+                        <div>
+                            <h3 th:text="${post.getTitle()}"></h3>
+                            <p class="mt-2" th:text="${post.getBody()}"></p>
+                        </div>
+
+                    </div>
+
+                    <div class="row ml-3 mb-3">
+
+                        <div class="col-4">
+
+                            <div class="comment_like_share mb-2">
+                                <div class="like">
+                                    <p>
+                                        <i th:onclick="'like('+${post.postId}+', '+${loggedUser.userId}+')'" th:id="${post.postId}"
+                                           style="color: #3b5998; font-size:24px" class="fa fa-thumbs-o-up" aria-hidden="true">
+                                            <span class="likes" th:text="${post.getPostLikes().size()}"></span>
+                                            <span style="display:none;" class="thumb" th:text="${post.postId}"></span></i>
+
+                                        <a class="ml-3" th:href="@{'/comments?postId=' + ${post.postId}}">Comments</a>
+                                        <span th:text="${post.getListOfComments().size()}"></span>
+                                    <p style="display: none" class="userLiked" th:text="${post.getPostLikes()}"></p>
+
+
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4" th:if="${loggedUser.userId == post.user.userId}">
+                            <a th:href="@{'/updatepost?postId=' + ${post.postId} }" class="btn-success btn-sm">Edit Post</a>
+                        </div>
+
+                        <div class="col-4" th:if="${loggedUser.userId == post.user.userId}">
+                            <form th:action="@{/delete/{id}(id=${post.getPostId()})}" method="post" th:object="${postDelete}">
+                                <button class="btn-danger btn-sm" type="submit" value="">Delete Post</button>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <form th:action="@{/home_comment}" method="post" th:object="${newComment}">
+                            <input style="display:none" name="postid" th:value="${post.getPostId()}"/>
+
+                            <textarea class ="form-control drag mb-4 commentstyle" th:field="*{commentBody}" placeholder="What are your thoughts on this?"></textarea>
+
+                            <button class="btn-success btn-sm btn-block" type="submit">Post Comment</button>
+
+                        </form>
+                    </div>
+
+                    <div class="row text-center mb-3">
+
+                        <div class="col-lg-6">
+
+
+                        </div>
+
+                        <div class="col-lg-6">
+
+
+                        </div>
+
+                    </div>
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <footer class="">
+                <p class="mt-5 text-center">Facebook Clone 2021</p>
+            </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script>
+
+    window.onload = () => {
+        const valid = document.getElementsByClassName("userLiked");
+        let thumb = document.getElementsByClassName("fa fa-thumbs-o-up");
+
+        console.log(valid)
+        console.log(thumb)
+
+        for (let i = 0; i < valid.length; i++) {
+            if(valid[i].innerHTML === "true") {
+                console.log(thumb[i]);
+                console.log(valid[i]);
+                thumb[i].style.color = "#1977f2";
+            }else {
+                console.log(thumb[i]);
+                console.log(valid[i]);
+            }
+        }
+    }
+
+    function like(postId, userId) {
+        console.log("ghfghdfdfgf")
+        //fa fa-thumbs-o-up
+        const URL = "/like_post";
+        let like = document.getElementById(postId).style.color;
+        console.log(like);
+        if (like == "rgb(25, 119, 242)") {
+            console.log("decrement");
+            const valid = document.getElementsByClassName("thumb");
+            document.getElementById(postId).style.color = "#3b5998";
+            for (let i = 0; i < valid.length; i++) {
+                let newId = valid[i].innerHTML.split(" ")[0];
+                if (newId == postId) {
+                    let like = Number(document.getElementsByClassName("likes")[i].innerHTML);
+                    like--;
+                    document.getElementsByClassName("likes")[i].innerHTML = like + "";
+                    console.log(document.getElementsByClassName("likes")[i]);
+                    const data = {postId, userId, "action": 0}
+                    ajaxCall(URL, data);
+                }
+            }
+        } else {
+            console.log("increment");
+            const valid = document.getElementsByClassName("thumb");
+            document.getElementById(postId).style.color = "#1977f2";
+            for (let i = 0; i < valid.length; i++) {
+                let newId = valid[i].innerHTML.split(" ")[0];
+                if (newId == postId) {
+                    let like = Number(document.getElementsByClassName("likes")[i].innerHTML);
+                    like++;
+                    document.getElementsByClassName("likes")[i].innerHTML = like + "";
+                    const data = {postId, userId, "action": 1}
+                    ajaxCall(URL, data);
+                }
+            }
+        }
+    }
+
+    function ajaxCall(url, dataCall){
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: dataCall,
+            success: function(data){
+            },
+            error: function(){
+                alert('error liking');
+            }
+        });
+    }
+</script>
+
+</body>
+
+</html>

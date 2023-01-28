@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Facebook Clone - UserProfile</title>
+    <!-- Bootstrap 4.5 CSS-->
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+    />
+    <!-- Bootstrap JS Requirements -->
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"
+    ></script>
+    <!-- My css -->
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">Facebook Clone</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            </ul>
+            <div class="d-flex navbar-right">
+                <img class="profile-image" th:src="@{/img/avatar.png}" alt="">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class ="nav-link" th:href="@{/##}">Username</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row userprofile">
+        <div class="col-lg-5">
+            <div class="shadow p-3 mb-5 rounded text-center">
+                <img class="profile-image-big mt-3" src="images/hairstyle.png" alt="">
+                <input class="upload-photo mt-4 text-center" type="file" name="photo">
+                <h4 class="mt-4">Username</h4>
+                <p>Hi jskjflkffflsdkdkdkdkddkd
+                    djdsjdjdsldskllkssssss
+                    jkdsksdjsdjsdsdllkdsdskskls
+                </p>
+                <p><b>Lagos, Nigeria</b></p>
+                <p><a href="#">Website</a></p>
+                <p>Born May 1st</p>
+                <p>Joined May</p>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <h4 class="">Edit Profile</h4>
+                <form action="" class="form-group">
+                    <input class="form-control mb-3" type="text" name="text" placeholder="Full Name">
+                    <input class="form-control mb-3" type="email" name="email" placeholder="email" readonly>
+                    <p class="mt-4">Date of birth</p>
+                    <div class="row mt-3">
+                        <div class="col-lg-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Day</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Year</option>
+                                <option value="1">2021</option>
+                                <option value="2">2020</option>
+                                <option value="3">2019</option>
+                                <option value="4">2018</option>
+                                <option value="5">2017</option>
+                                <option value="6">2016</option>
+                                <option value="7">2015</option>
+                                <option value="8">2014</option>
+                                <option value="9">2013</option>
+                                <option value="10">2012</option>
+                                <option value="11">2011</option>
+                                <option value="12">2010</option>
+                                <option value="13">2009</option>
+                                <option value="14">2008</option>
+                                <option value="15">2007</option>
+                                <option value="16">2006</option>
+                                <option value="17">2005</option>
+                                <option value="18">2004</option>
+                                <option value="19">2003</option>
+                                <option value="20">2002</option>
+                                <option value="21">2001</option>
+                                <option value="22">2000</option>
+                                <option value="23">1999</option>
+                                <option value="24">1998</option>
+                                <option value="25">1997</option>
+                                <option value="26">1996</option>
+                                <option value="27">1995</option>
+                                <option value="28">1994</option>
+                                <option value="29">1993</option>
+                                <option value="30">1992</option>
+                                <option value="31">1991</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="mt-4">Gender</p>
+                    <div class="row mb-3">
+                        <div class="col-lg-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Male
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4">Bio Info</p>
+                    <textarea class ="form-control drag"></textarea>
+                    <p class="mt-4">Website</p>
+                    <textarea class ="form-control drag  mb-4"></textarea>
+                    <button class="btn-success btn-lg btn-block">Update</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

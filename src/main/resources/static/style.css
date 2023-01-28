@@ -1,0 +1,98 @@
+body {
+    background-color: #f0f2f5;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 100px;
+    color: #1877f2;
+}
+
+.intro {
+    font-size: 30px;
+
+}
+.container {
+    margin-top: 10%;
+}
+
+
+.commentstyle {
+
+    background: #f0f2f5 !important;
+    border-radius: 20px !important;
+}
+.signup-container {
+    margin-top: -10%;
+}
+
+.titlestyle{
+    background: #d5dadf !important;
+    padding: 5px 0px 5px 15px;
+    border-radius: 20px !important;
+    border-color: #fff !important;"
+}
+.home-page {
+    margin-top: -10%;
+}
+
+.shadow {
+    background: #fff;
+}
+
+.profile-image {
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px;;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    width: 70% !important;
+}
+
+.profile-image-big {
+    border-radius: 50% !important;
+    width: 150px !important;
+    height: 150px;;
+}
+
+.upload-photo {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.userprofile {
+    margin-top: -8%;
+}
+
+.form-select {
+    width: 100% !important;
+    padding: .375rem 2.25rem .375rem .75rem !important;
+}
+
+.forgotten-password {
+    border-bottom: 1px solid #dadde1;
+    height: 40px;
+}
+
+.solid {
+    margin-top: -2px;
+}
+.drag {
+    resize: none;
+}
+.create-page-link {
+    color: #000;
+}
+
+.create-page-link:hover {
+    color: #000;
+}
+
+
+.navbar-right {
+    margin-left: 83%;
+
+}
